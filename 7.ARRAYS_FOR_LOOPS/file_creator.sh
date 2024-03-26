@@ -1,0 +1,13 @@
+#!/bin/bash
+# file_creator.sh
+
+readarray -t files < files.txt
+
+for file in "${files[@]}"; do
+  if [ -f "$file" ] ; then
+    echo "$file already exists"
+  else
+    touch "$file"
+    echo "$file created"
+  fi
+done
